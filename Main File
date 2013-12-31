@@ -21,18 +21,18 @@ Auxiliary Space : O(1) if Function Call Stack size is not considered (I think th
 */
 
 
-private static boolean isBST(Node current, Comparable more, Comparable less) {
+private static boolean isBST(Node current, Comparable min, Comparable max) {
     if (current == null) 
         return true;
 
-    if (less != null && current.value.compareTo(less) > 0)
+    if (min != null && current.value.compareTo(min) > 0)
         return false;
 
-    if (more != null && current.value.compareTo(more) < 0) 
+    if (max != null && current.value.compareTo(max) < 0) 
         return false;
 
-    return isBST(current.left, more, current.value) && 
-            isBST(current.right, current.value, less);
+    return isBST(current.left, min, current.value) && 
+            isBST(current.right, current.value, max);
 }
 
 public static boolean isBST(BinarySearchTree tree) {
