@@ -6,6 +6,35 @@ before looking at the solution -- it's the best way to learn.
 */
 
 
+/////******** USEFUL HINTS FOR ALL THE 14 OPERATIONS*****************
+In binary trees, the main tool to solve all the problems is recursion. In recursion, in many of the cases below, we have a 
+set pattern t solve the problem.
+
+In recursion, we have a BASE CASE -> so that the recursion doesn't continue for infinite loop
+
+The second part is the traversal:
+for example in the operation where we need to find the size of the tree. We subdivide the problem so that we calculate 
+the size of the left subtree and the size of the right subtree. To go to the left and right, we require an efficient and
+proper traversal. Here comes the importance of the 3 traversals 1) Inorder 2) Preorder 3) Postorder.
+Hence in the size problem, we have the 2nd part as
+int leftsubtree = size(node.left);
+int rightsubtree = size(node.right);
+This for the 2nd part of recursion. If we see the above traversal, we will easly make out that the above traversal made
+is a POSTORDER traversal. Hence traversals are very very important part in learning trees. Also there are cases where 
+we will use BFS and DFS raversals. The three traversals Inorder, Prorder, Postorder are nothing but variants of DFS traversals.
+A BFS is called as a level-order traversal.
+
+The third part is where the proper answer needs to be returned.
+for example, in the case of the size of the tree, the last part(aka CONCLUSION part) is as follows:
+return (leftsubtree+1+rightsubtree); // plus 1 is for the parent node
+
+Thus, we can say that most of the recursion problems consists of 3 parts:
+INTRO (BASE CASE which is mostly a return statement)
+BODY (TRAVERSAL)
+CONCLUSION (PROPER RETURN PART which is mostly a return statement)
+/////******** END OF USEFUL HINTS FOR ALL THE 14 OPERATIONS*****************
+
+
 
 /* The BEST and the most EFFICIENT program to check whether the given tree is a binary search tree.
 
