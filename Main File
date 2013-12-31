@@ -8,7 +8,9 @@ Here are the Java solutions to the 14 binary tree problems. Most of the solution
 
 /* The BEST and the most EFFICIENT program to check whether the given tree is a binary search tree.
 
-The trick is to write a utility helper function isBST(struct node* node, int min, int max) that traverses down the tree keeping track of the narrowing min and max allowed values as it goes, looking at each node only once. The initial values for min and max should be INT_MIN and INT_MAX — they narrow from there.
+The trick is to write a utility helper function isBST(struct node* node, int min, int max) that 
+traverses down the tree keeping track of the narrowing min and max allowed values as it goes, looking at 
+each node only once. The initial values for min and max should be INT_MIN and INT_MAX — they narrow from there.
 
 The Time and Space complexity of the below program is as follows:
 
