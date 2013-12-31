@@ -1,8 +1,9 @@
-Here are the Java solutions to the 14 binary tree problems. Most of the solutions use two methods:a one-line OOP method that starts the computation, and a recursive method that does the real operation. Make an attempt to solve each problem before looking at the solution -- it's the best way to learn.
+/*Here are the Java solutions to the 14 binary tree problems. 
+Most of the solutions use two methods:a one-line OOP method that starts the computation, 
+and a recursive method that does the real operation. Make an attempt to solve each problem 
+before looking at the solution -- it's the best way to learn.
 
-
-
-
+*/
 
 
 
