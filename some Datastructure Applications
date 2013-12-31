@@ -1,14 +1,14 @@
-Hash Table - used for fast data lookup - symbol table for compilers, database indexing, caches,Unique data representation.
+Hash Table - Used for fast data lookup - symbol table for compilers, database indexing, caches,Unique data representation.
 
 Trie - dictionary, such as one found on a mobile telephone for autocompletion and spell-checking.
 
-Suffix tree - fast full text searches used in most word processors.
+Suffix tree - Fast "Full Text" searches used in most word processors.
 
-Stack - undo\redo operation in word processors, Expression evaluation and syntax parsing, many virtual machines like JVM are stack oriented.
+Stack - Undo\Redo operation in word processors, Expression evaluation and syntax parsing, many virtual machines like JVM are stack oriented.
 
-Queues - Transport and operations research where various entities are stored and held to be processed later ie the queue performs the function of a buffer.
+Queues - Acts as a Buffer for storing incoming data to be processed later
 
-Priority queues - process scheduling in the kernel
+Priority queues - Process scheduling in the kernel
 
 Trees - Parsers, Filesystem
 
@@ -16,6 +16,8 @@ Radix tree - IP routing table
 
 BSP tree - 3D computer graphics
 
-Graphs - Connections/relations in social networking sites, Routing ,networks of communication, data organization etc.
+Graphs - Mostly used in social networking sites. Connections/relations in social networking sites.
+         Routing ,networks of communication, data organization etc.
 
-Heap - Dynamic memory allocation in lisp
+Heap - Sorting data elements. Dynamic memory allocation in lisp(list is a type of programming language.
+       It is the second oldest high level programming language. 
