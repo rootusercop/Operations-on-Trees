@@ -1,0 +1,47 @@
+/* Reverse a LinkedList both recursively and iteratively. */
+
+
+// Recursive code
+Node Reverse(Node current, Node pre)
+{
+	Node next=current.next;
+	current.next=pre;
+	
+	if(next==null)
+             return current;
+
+	return Reverse(next,current);
+}
+
+Node Reverse(Node head)
+{
+        if(head==null)
+               return null;
+
+	return Reverse(head,null);
+}
+
+
+
+
+
+//Iterative code
+Node ReverseIterative(Node head)
+{
+	if(head==null)
+		return null;
+		
+	Node pre=null;
+	Node current=head;
+	
+	while(current!=null)
+	{
+		Node next=current.next;
+		current.next=pre;
+		
+		pre=current;
+		current=next;
+	}
+	
+	return pre;	
+}
