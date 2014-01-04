@@ -51,8 +51,9 @@ Auxiliary Space : O(1) if Function Call Stack size is not considered (I think th
 
 Also one more method is where we can do a inorder traversal and store the elements in an array. Now we can check if the array is 
 sorted, if yes then the tree is a BST otherwise it is not.
-In this, the time complexity will be O(n^2) and the space complexity will be O(n) which is the space required by the 
-auxilary array for storing the inorder traversal.
+In this, the time complexity will be O(n) [Actually O(n+n), one for inorder and the other 
+for searching whether the array is sorted -> which is rounded off to O(n)] and the space complexity
+will be O(n) which is the space required by the auxilary array for storing the inorder traversal.
 
 */
 
