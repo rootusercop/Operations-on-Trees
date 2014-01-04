@@ -76,6 +76,36 @@ public static boolean isBST(BinarySearchTree tree) {
     return isBST(tree.getRoot(), null, null);
 }
 
+/* Using Inorder and auxilary array to check whether a tree is a BST */
+
+public boolean isBST(){
+	
+	 return isBST(root);
+}
+public boolean isBST(Node node){
+	
+	// doing inorder and storing the elements in an array
+	if(node==null)
+		return false;
+	
+	
+	isBST(node.lchild);
+	array.add(node.data);
+	isBST(node.rchild);
+	 int count=0;
+	for(int i=0;i<array.size()-1;i++)
+	{
+		if(array.get(i)<array.get(i+1))
+			count++;
+	}
+	if(count==array.size()-1)
+		return true;
+	else
+		return false;
+		
+			
+}
+
 
 1.a. /* Function to get diameter of a binary tree. Time Complexity of this solution is: O(n^2) */
 /* Source geeksforgeeks: http://www.geeksforgeeks.org/diameter-of-a-binary-tree/  
