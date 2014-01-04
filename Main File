@@ -30,7 +30,7 @@ for example, in the case of the size of the tree, the last part(aka CONCLUSION p
 return (leftsubtree+1+rightsubtree); // plus 1 is for the parent node
 
 Thus, we can say that most of the recursion problems consists of 3 parts:
-INTRO (BASE CASE which is mostly a return statement)
+INTRO (BASE CASE or a terminating condition which is mostly a return statement)
 BODY (TRAVERSAL)
 CONCLUSION (PROPER RETURN PART which is mostly a return statement)
 /////******** END OF USEFUL HINTS FOR ALL THE 14 OPERATIONS*****************
