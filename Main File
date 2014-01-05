@@ -112,6 +112,35 @@ private boolean isBST(Node node){
 			
 }
 
+/*
+This auxilary array can be avoided and the Space complexity can be converted to O(1) in the same 
+code, by maintaining a previous node and checking whether prev.data is less than current_node.data
+*/
+public boolean isBST(){
+	
+	 return isBST(root);
+}
+public boolean isBST(Node node){
+	
+	Node prev=null;
+	// doing inorder and storing the elements in an array
+	if(node==null)
+		return false;
+	
+	
+	isBST(node.lchild);
+	
+	if(prev!=null && node.data<=prev.data)
+		return false;
+		
+	prev=node;
+	
+	isBST(node.rchild);
+	return true;
+	
+			
+}
+
 
 1.a. /* Function to get diameter of a binary tree. Time Complexity of this solution is: O(n^2) */
 /* Source geeksforgeeks: http://www.geeksforgeeks.org/diameter-of-a-binary-tree/  
