@@ -163,6 +163,31 @@ public int countBST(int nodes){
 
 
 
+/* To Find the Lowest Common Ancestor (LCA) of two nodes in a Binary Tree (PLEASE NOTE THAT THE
+TREE CAN BE A SIMPLE BINARY TREE. IT NEED NOT BE BINAS+RY SEARCH TREE. 
+Consider this binary tree : Please refer the following source:
+http://stackoverflow.com/questions/1484473/how-to-find-the-lowest-common-ancestor-of-two-nodes-in-any-binary-tree
+
+Binary Tree
+
+The inorder traversal yields - 8, 4, 9, 2, 5, 1, 6, 3, 7
+
+And the postorder traversal yields - 8, 9, 4, 5, 2, 6, 7, 3, 1
+
+So for instance, if we want to find the common ancestor of nodes 8 and 5,
+then we make a list of all the nodes which are between 8 and 5 in the inorder tree traversal,
+which in this case happens to be [4, 9, 2]. Then we check which node in this list appears last
+in the postorder traversal, which is 2. Hence the common ancestor for 8 and 5 is 2.
+
+The complexity for this algorithm, I believe is O(n) ( O(n) for inorder/postorder traversals, 
+the rest of the steps again being O(n) since they are nothing more than simple iterations in arrays).
+
+*/
+
+
+Code is remaining for LCA
+If the code is not updated yet, then the logic is clear so please implement it.
+
 
 
 
