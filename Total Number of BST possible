@@ -1,0 +1,13 @@
+public int countBST(int nodes){
+	int totalTrees=0;
+	if(nodes==0||nodes==1)
+		return 1;
+	else{
+		for(int k=1;k<=nodes;k++){
+			int leftTree=countBST(k-1);
+			int rightTree=countBST(nodes-k);
+			totalTrees= totalTrees+leftTree*rightTree; // Forumla is total=summation(left*right)
+		}
+	}
+	return totalTrees;
+}
