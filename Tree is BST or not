@@ -1,3 +1,61 @@
+
+/* This is the BEST Solution among all three mentioned in this file.
+   Time Complexity O(n) and Space Complexity O(1) */
+
+ public static boolean isBST(Node root)
+ {
+  return checkBooleanAndReturn(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
+ }
+ 
+ private static boolean checkBooleanAndReturn(Node root, int max,int min)
+ {
+  if(root==null)return true;
+  boolean leftOk=true;
+  boolean rightOk=true;
+  boolean centerOk=true;
+  if(root.left!=null)
+   leftOk=checkBooleanAndReturn(root.left,root.value,min);
+  if(root.value>=min &&root.value<=max)
+   centerOk=true;
+  else
+   centerOk=false;
+  if(root.right!=null)
+   rightOk=checkBooleanAndReturn(root.right,max,root.value);
+  return leftOk&&centerOk&&rightOk;
+ }
+
+
+
+/* Using Inorder and WITHOUT auxilary array to check whether a tree is a BST.
+Time Complexity O(n) and Space Complexity O(1) */
+
+public boolean isBST(){
+	
+	 return isBST(root);
+}
+public boolean isBST(Node node){
+	
+	Node prev=null;
+	// doing inorder and storing the elements in an array
+	if(node==null)
+		return false;
+	
+	
+	isBST(node.lchild);
+	if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
+		return false;
+	
+	prev=node;
+	isBST(node.rchild);
+	return true;
+	
+			
+}
+
+
+
+
+
 /* Using Inorder and auxilary array to check whether a tree is a BST.
 Time Complexity O(n) and Space Complexity O(n) */
 
@@ -38,57 +96,7 @@ private boolean isBST(Node node){
 
 
 
-/* Using Inorder and WITHOUT auxilary array to check whether a tree is a BST.
-Time Complexity O(n) and Space Complexity O(1) */
-
-public boolean isBST(){
-	
-	 return isBST(root);
-}
-public boolean isBST(Node node){
-	
-	Node prev=null;
-	// doing inorder and storing the elements in an array
-	if(node==null)
-		return false;
-	
-	
-	isBST(node.lchild);
-	if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
-		return false;
-	
-	prev=node;
-	isBST(node.rchild);
-	return true;
-	
-			
-}
 
 
 
 
-
-
-/* One more Solution Time Complexity O(n) and Space Complexity O(1) */
-
- public static boolean isBST(Node root)
- {
-  return checkBooleanAndReturn(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
- }
- 
- private static boolean checkBooleanAndReturn(Node root, int max,int min)
- {
-  if(root==null)return true;
-  boolean leftOk=true;
-  boolean rightOk=true;
-  boolean centerOk=true;
-  if(root.left!=null)
-   leftOk=checkBooleanAndReturn(root.left,root.value,min);
-  if(root.value>=min &&root.value<=max)
-   centerOk=true;
-  else
-   centerOk=false;
-  if(root.right!=null)
-   rightOk=checkBooleanAndReturn(root.right,max,root.value);
-  return leftOk&&centerOk&&rightOk;
- }
