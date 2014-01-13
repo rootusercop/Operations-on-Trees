@@ -63,3 +63,32 @@ public boolean isBST(Node node){
 	
 			
 }
+
+
+
+
+
+
+/* One more Solution Time Complexity O(n) and Space Complexity O(1) */
+
+ public static boolean isBST(Node root)
+ {
+  return checkBooleanAndReturn(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
+ }
+ 
+ private static boolean checkBooleanAndReturn(Node root, int max,int min)
+ {
+  if(root==null)return true;
+  boolean leftOk=true;
+  boolean rightOk=true;
+  boolean centerOk=true;
+  if(root.left!=null)
+   leftOk=checkBooleanAndReturn(root.left,root.value,min);
+  if(root.value>=min &&root.value<=max)
+   centerOk=true;
+  else
+   centerOk=false;
+  if(root.right!=null)
+   rightOk=checkBooleanAndReturn(root.right,max,root.value);
+  return leftOk&&centerOk&&rightOk;
+ }
