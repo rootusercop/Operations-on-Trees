@@ -1,0 +1,30 @@
+public int diameter(){
+		return diameter(root);
+	}
+	public int diameter(Node root){
+		if(root==null)
+			return 0;
+		
+		int lheight=height(root.lchild);
+		int rheight=height(root.rchild);
+		
+		int ldiameter=diameter(root.lchild);
+		int rdiameter=diameter(root.rchild);
+		
+		return Math.max(lheight+1+rheight, Math.max(ldiameter, rdiameter));
+		
+	}
+	
+	
+	public int height(){
+		return height(root);
+	}
+	public int height(Node root){
+		if(root==null)
+			return 0;
+		int ltree= height(root.lchild);
+		int rtree= height(root.rchild);
+		
+		return Math.max(ltree+1,rtree+1);
+	}
+	
