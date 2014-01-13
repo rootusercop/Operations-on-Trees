@@ -1,0 +1,42 @@
+/** 
+ Given a binary tree, prints out all of its root-to-leaf 
+ paths, one per line. Uses a recursive helper to do the work. 
+*/ 
+public void printPaths() { 
+  int[] path = new int[1000]; 
+  printPaths(root, path, 0);  //Here Please note that the path[] and the pathlength=0 is initialized.
+}
+/** 
+ Recursive printPaths helper -- given a node, and an array containing 
+ the path from the root node up to but not including this node, 
+ prints out all the root-leaf paths. 
+*/ 
+private void printPaths(Node node, int[] path, int pathLen) {   // pathlength=0 and pathlength[1000] both are initialized above. Please see above.
+  if (node==null) return;
+
+  // append this node to the path array. This is the gist of the problem. These 2 lines are the stratergy to solve the problem.
+  path[pathLen] = node.data; 
+  pathLen++;
+
+  // it's a leaf, so print the path that led to here 
+  if (node.left==null && node.right==null) { 
+    printArray(path, pathLen); 
+  } 
+  else { 
+  // otherwise try both subtrees 
+    printPaths(node.left, path, pathLen); 
+    printPaths(node.right, path, pathLen); 
+  } 
+}
+
+/** 
+ Utility that prints ints from an array on one line. 
+*/ 
+private void printArray(int[] ints, int len) { 
+  int i; 
+  for (i=0; i<len; i++) { 
+   System.out.print(ints[i] + " "); 
+  } 
+  System.out.println(); 
+} 
+ 
