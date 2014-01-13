@@ -1,0 +1,26 @@
+
+/* If target is present in tree, then prints the ancestors
+   and returns true, otherwise returns false. */
+
+public boolean printAncestors(Node node, int target) //node is the root node and 
+                                                    //target is the node whose ancestors needs to be printed
+	{
+	  /* base cases */
+	  if (node == null)
+	     return false;
+	 
+	  if (node.data == target)
+	     return true;
+	 
+	  /* If target is present in either left or right subtree of this node,
+	     then print this node */
+	  if ( printAncestors(node.lchild, target) || printAncestors(node.rchild, target) )
+	  {
+	    System.out.print(node.data+" ");
+	    return true;
+	  }
+	 
+	  /* Else return false */
+	  return false;
+	}
+	
