@@ -1,0 +1,65 @@
+/* Using Inorder and auxilary array to check whether a tree is a BST.
+Time Complexity O(n) and Space Complexity O(n) */
+
+public ArrayList<Integer> array=new ArrayList<Integer>();
+
+/* array is a global variable of type ArrayList<E> */
+
+
+public boolean isBST(){
+        
+         return isBST(root);
+}
+private boolean isBST(Node node){
+        
+        // doing inorder and storing the elements in an array
+        if(node==null)
+                return false;
+        
+        
+        isBST(node.lchild);
+        array.add(node.data);
+        isBST(node.rchild);
+         int count=0;
+        for(int i=0;i<array.size()-1;i++)  // If i is compared with array.size() and not array.size()-1, 
+                                           // then the ArrayList would go OutOfBounds
+        {
+                if(array.get(i)<array.get(i+1))
+                        count++;
+        }
+        if(count==array.size()-1)
+                return true;
+        else
+                return false;
+                
+                        
+}
+
+
+
+
+/* Using Inorder and WITHOUT auxilary array to check whether a tree is a BST.
+Time Complexity O(n) and Space Complexity O(1) */
+
+public boolean isBST(){
+	
+	 return isBST(root);
+}
+public boolean isBST(Node node){
+	
+	Node prev=null;
+	// doing inorder and storing the elements in an array
+	if(node==null)
+		return false;
+	
+	
+	isBST(node.lchild);
+	if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
+		return false;
+	
+	prev=node;
+	isBST(node.rchild);
+	return true;
+	
+			
+}
