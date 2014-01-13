@@ -1,0 +1,28 @@
+
+/* 
+ Compares the receiver to another tree to 
+ see if they are structurally identical. 
+*/ 
+public boolean sameTree(BinaryTree other) { 
+ return( sameTree(root, other.root) ); 
+}
+/** 
+ Recursive helper -- recurs down two trees in parallel, 
+ checking to see if they are identical. 
+*/ 
+boolean sameTree(Node a, Node b) { 
+  // 1. both empty -> true 
+  if (a==null && b==null) return(true);
+
+  // 2. both non-empty -> compare them 
+  else if (a!=null && b!=null) { 
+    return( 
+      a.data == b.data && 
+      sameTree(a.left, b.left) && 
+      sameTree(a.right, b.right) 
+    ); 
+  } 
+  // 3. one empty, one not -> false 
+  else return(false); 
+} 
+ 
