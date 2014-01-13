@@ -1,4 +1,3 @@
-
 public boolean balTree(){
 	return balTree(root);
 }
