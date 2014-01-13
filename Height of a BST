@@ -1,0 +1,12 @@
+
+	public int height(){
+		return height(root);
+	}
+	public int height(Node root){
+		if(root==null)
+			return 0;
+		int ltree= height(root.lchild);
+		int rtree= height(root.rchild);
+		
+		return Math.max(ltree+1,rtree+1);
+	}
