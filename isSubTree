@@ -1,0 +1,44 @@
+/*
+ * Given two binary trees, check whether one tree is a subtree of the other.
+ * 
+ * */
+public class CheckSubTree {
+
+        class node{
+                int data;
+                node left =null;
+                node right=null;
+                node(int data){
+                        this.data = data;
+                }
+                
+        }
+
+        public static boolean isSubtree(node main, node sub){
+                if(main==null) return false;
+                if(sub == null) return true;
+                return isSubtreeHelper(main, sub);
+        }
+        
+        
+        public static boolean isSubtreeHelper(node main, node sub){
+                if(main == null) return false;
+                
+                if(main.data == sub.data)
+                        if (matchTwoTrees(main,sub)) return true;//don't use "return matchTwoTrees(main,sub)"
+                //don't use if... else return isSub... here. 
+                return isSubtreeHelper(main.left,sub)&&isSubtreeHelper(main.right,sub);
+        }
+        
+        public static boolean matchTwoTrees(node n1, node n2){
+                if(n1== null && n2 == null) return true;
+                if(n1==null || n2 == null) return false;
+                
+                if(n1.data!=n2.data) return false;
+                else
+                        return matchTwoTrees(n1.left,n2.left) && matchTwoTrees(n1.right,n2.right);
+                
+        }
+        
+        
+}
