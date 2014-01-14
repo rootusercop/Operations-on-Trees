@@ -1,0 +1,143 @@
+  /**
+         * Performs the operation first on the node itself, then on its left descendants, and
+         * finally on its right descendants. In other words, a node is always visited before any of its
+         * children.
+         * (self -> go down left -> go down right)
+         */
+        public void preorderTraversal () {
+                preorderTraversal(root);
+                System.out.println();
+        }
+        
+        private void preorderTraversal(Node node) {
+                if (node == null) {
+                        return;
+                }
+                
+                System.out.print(node.key + " ");
+                preorderTraversal(node.left);
+                preorderTraversal(node.right);
+        }
+        
+        /**
+         * Sometimes recursive algorithms can be replaced with iterative algorithms that accomplish the same
+         * task in a fundamentally different manner using different data structures.
+         * Because recursion is so intrinsic to the definition of a preorder traversal, you may have trouble finding
+         * an entirely different iterative algorithm to use in place of the recursive algorithm. 
+         * In such a case, the best course of action is to understand what is happening in the recursion 
+         * and try to emulate the process iteratively.
+         */
+        public void preorderNoRecursionTraveral() {
+                if (root == null) {
+                        return;
+                }
+                
+                Stack<Node> stack = new Stack<BinarySearchTree.Node>();
+                stack.push(root);
+                while (!stack.isEmpty()) {
+                        Node node = stack.pop();
+                        System.out.print(node.key + " ");
+                        
+                        if(node.right != null) {
+                                stack.push(node.right);
+                        }
+                        if(node.left != null) {
+                                stack.push(node.left);
+                        }
+                }
+                System.out.println();
+        }
+        
+        
+        /**
+         * Performs the operation first on the node�s left descendants, then on the node
+         * itself, and finally on its right descendants. 
+         * In other words, the left subtree is visited first,
+         * then the node itself, and then the node�s right subtree.
+         * (go down left -> self -> go down right)
+         */
+        public void inorderTraversal() {
+                inorderTraversal(root);
+                System.out.println();
+        }
+        
+        private void inorderTraversal(Node node) {
+                if (node == null) {
+                        return;
+                }
+                inorderTraversal(node.left);
+                System.out.print(node.key + " ");
+                inorderTraversal(node.right);
+        }
+        
+        public void inorderTraversalNoRecursion() {
+                if (root == null) {
+                        return;
+                }
+                Stack<Node> s = new Stack<>();
+                Node curr = this.root;
+                s.push(curr);
+                while (!s.isEmpty()) {
+                        while (curr.left != null) {
+                                s.push(curr.left);
+                                curr = curr.left;
+                        }
+                        Node n = s.pop();
+                        System.out.print(n.key + " ");
+                        if (n.right != null) {
+                                s.push(n.right);
+                                curr = n.right;
+                        }
+                }
+                
+                System.out.println();
+        }
+        
+        /**
+         * 
+         * Performs the operation first on the node�s left descendants, then on the node�s
+         * right descendants, and finally on the node itself. In other words, a node is always visited
+         * after all its children.
+         * (go down left -> go down right -> self)
+         */
+        public void postorderTraversal() {
+                postorderTraversal(root);
+                System.out.println();
+        }
+        
+        private void postorderTraversal(Node node) {
+                if (node == null) {
+                        return;
+                }
+                
+                postorderTraversal(node.left);
+                postorderTraversal(node.right);
+                System.out.print(node.key + " ");
+        }
+
+        public void postorderTraversalNoRecursion() {
+                if (root == null) {
+                        return;
+                }
+                Stack<Node> stack = new Stack<BinarySearchTree.Node>();
+                Node head = root;
+                stack.push(head);
+
+                while (!stack.isEmpty()) {
+                        Node next = stack.peek();
+                        if (next.right == head || next.left == head
+                                        || (next.left == null && next.right == null)) {
+                                stack.pop();
+                                System.out.print(next.key + " ");
+                                head = next;
+                        } else {
+                                if (next.right != null) {
+                                        stack.push(next.right);
+                                }
+                                if (next.left != null) {
+                                        stack.push(next.left);
+                                }
+                        }
+                }
+                System.out.println();
+        }
