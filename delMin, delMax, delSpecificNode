@@ -1,0 +1,89 @@
+  /**  Delete Min in BST
+         * Go left until finding a node that that has a null left link and then replace the link to that node by its right link.
+         */
+        public void deleteMin() {
+                root = deleteMin(root);
+        }
+        
+        private Node deleteMin(Node x) {
+                if (x == null) {
+                        return null;
+                }
+        if (x.left != null) {
+                x.left = deleteMin(x.left);
+                x.N = size(x.left) + size(x.right) + 1;
+                return x;
+        }
+        return x.right;
+    }
+        
+        /** Delete Max in BST
+         * Go right until finding a node that that has a null right link and then replace the link to that node by its left link.
+         */
+        public void deleteMax() {
+                root = deleteMax(root);
+        }
+        
+        private Node deleteMax(Node x) {
+                if (x == null) {
+                        return null;
+                }
+                if (x.right != null) {
+                        x.right = deleteMax(x.right);
+                        x.N = size(x.left) + size(x.right) + 1;
+                        return x;
+                }
+                        return x.left;
+        }
+        
+         
+        /** Delete Specific Node in BST
+         * We can proceed in a similar manner to delete any node that has one child (or no children), 
+         * but what can we do to delete a node that has two children? We are left with two links, 
+         * but have a place in the parent node for only one of them. 
+         * An answer to this dilemma, first proposed by T. Hibbard in 1962, is to delete a node x by replacing it with its successor. 
+         * Because x has a right child, its successor is the node with the smallest key in its right subtree. 
+         * The replacement preserves order in the tree because there are no keys between x.key and the successor's key. 
+         * We accomplish the task of replacing x by its successor in four (!) easy steps:
+         * 1. Save a link to the node to be deleted in t
+         * 2. Set x to point to its successor min(t.right).
+         * 3. Set the right link of x (which is supposed to point to the BST containing all the keys larger than x.key) to deleteMin(t.right), 
+         *         the link to the BST containing all the keys that are larger than x.key after the deletion.
+         * 4. Set the left link of x (which was null) to t.left (all the keys that are less than both the deleted key and its successor).
+         * 
+         * 
+         * !!! While this method does the job, it has a flaw that might cause performance problems in some practical situations. 
+         * !!! The problem is that the choice of using the successor is arbitrary and not symmetric. 
+         */
+        public void delete(String key) {
+                delete(root, key);
+        }
+        
+        private Node delete(Node node, String key) {
+                if (node == null) {
+                        return null;
+                }
+                int cmp = key.compareTo(node.key);
+                if (cmp == 0) {
+                        if (node.left == null && node.right == null) { // its a leaf node
+                                return null; // delete it
+                        } else if (node.left != null && node.right == null) { // the node has only left subtree 
+                                return node.left; // return the left subtree
+                        } else if (node.left == null && node.right != null) { // the node has only right subtree
+                                return node.right; // return the right subtree
+                        } else {
+                                Node aux = node; // aux node to preserve node-to-be-deleted state
+                                node = min(aux.right); // node points to min node in the right subtree, this will be the new root in this tree
+                                node.right = deleteMin(aux.right); // node.right points to the right subtree after deleting the min node
+                                node.left = aux.left; // node.left points to the original left subtree
+                        }
+                } else if (cmp < 0) {
+                        node.left = delete(node.left, key);
+                } else {
+                        node.right = delete(node.right, key);
+                }
+                node.N = size(node.left) + size(node.right) + 1;
+                return node;
+        }
+        
+       
