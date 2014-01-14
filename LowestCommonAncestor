@@ -1,0 +1,12 @@
+ 
+ /* Recursive Solution */
+ 
+ public Node LCA(Node rootNode, Node p, Node q) {
+         if (rootNode == null || p == null || q == null)
+                 return null;
+         if (Math.max(p.data, q.data) < rootNode.data)
+                 return LCA(rootNode.lchild, p, q);
+         if (Math.min(p.data, q.data) > rootNode.data)
+                 return LCA(rootNode.rchild, p, q);
+         return rootNode;
+ }
