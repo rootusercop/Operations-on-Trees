@@ -1,5 +1,15 @@
  
  /* Recursive Solution. Worst Case Time Complexity is O(n) */
+   /**
+         * Given the value of two nodes in a binary search tree, find the lowest
+         * (nearest) common ancestor. You may assume that both values already exist in
+         * the tree.
+         * 
+         * Solution: when your target values are both less than the current node, you go left. 
+         * When they are both greater, you go right. 
+         * The first node you encounter that is between your target values is the lowest common ancestor.
+         */
+ 
  
  public Node LCA(Node rootNode, Node p, Node q) {
          if (rootNode == null || p == null || q == null)
@@ -13,10 +23,14 @@
 
 
 Iterative Solution:
+
 The inorder traversal yields - 8, 4, 9, 2, 5, 1, 6, 3, 7
 
 And the postorder traversal yields - 8, 9, 4, 5, 2, 6, 7, 3, 1
 
-So for instance, if we want to find the common ancestor of nodes 8 and 5, then we make a list of all the nodes which are between 8 and 5 in the inorder tree traversal, which in this case happens to be [4, 9, 2]. Then we check which node in this list appears last in the postorder traversal, which is 2. Hence the common ancestor for 8 and 5 is 2.
+So for instance, if we want to find the common ancestor of nodes 8 and 5, then we make 
+a list of all the nodes which are between 8 and 5 in the inorder tree traversal, which in this case 
+happens to be [4, 9, 2]. Then we check which node in this list appears last in the postorder traversal,
+which is 2. Hence the common ancestor for 8 and 5 is 2.
 
 The complexity for this algorithm is O(n)
