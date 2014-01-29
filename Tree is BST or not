@@ -26,7 +26,10 @@
 
 
 /* Using Inorder and WITHOUT auxilary array to check whether a tree is a BST.
-Time Complexity O(n) and Space Complexity O(1) */
+Time Complexity O(n) and Space Complexity O(1) 
+VER IMP NOTE: THIS IS A WRONG PROGRAM. PLEASE DONT FOLLOW THIS. FOLLOW THE PREVIOUS ONE
+
+*/
 
 public boolean forisBST(){
     
