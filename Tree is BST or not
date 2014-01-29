@@ -1,4 +1,3 @@
-
 /* This is the BEST Solution among all three mentioned in this file.
    Time Complexity O(n) and Space Complexity O(1) */
 
@@ -29,29 +28,27 @@
 /* Using Inorder and WITHOUT auxilary array to check whether a tree is a BST.
 Time Complexity O(n) and Space Complexity O(1) */
 
-public boolean isBST(){
-	
-	 return isBST(root);
+public boolean forisBST(){
+    
+    return forisBST(root, null);
 }
-public boolean isBST(Node node){
-	
-	Node prev=null;
-	// doing inorder and storing the elements in an array
-	if(node==null)
-		return false;
-	
-	
-	isBST(node.lchild);
-	if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
-		return false;
-	
-	prev=node;
-	isBST(node.rchild);
-	return true;
-	
-			
+public boolean forisBST(Node node, Node prev){
+   
+   // doing inorder and storing the elements in an array
+   if(node==null)
+           return false;
+   
+   
+   forisBST(node.lchild, prev);
+   if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
+           return false;
+   
+   prev=node;
+   forisBST(node.rchild, prev);
+   return true;
+   
+                   
 }
-
 
 
 
