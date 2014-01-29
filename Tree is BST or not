@@ -39,17 +39,15 @@ public boolean forisBST(Node node, Node prev){
            return false;
    
    
-   forisBST(node.lchild, prev);
+   forisBST(node.lchild, node);
+   
    if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
            return false;
    
-   prev=node;
-   forisBST(node.rchild, prev);
+   forisBST(node.rchild, node);
    return true;
-   
                    
 }
-
 
 
 
