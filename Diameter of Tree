@@ -1,3 +1,8 @@
+/*
+Diameter of a tree: The diameter of a tree is defined as the number of nodes between the extreme left node
+and the extreme right node of a tree
+*/
+
 public int diameter(){
 		return diameter(root);
 	}
