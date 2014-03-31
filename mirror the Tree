@@ -1,4 +1,3 @@
-
 /** 
  Changes the tree into its mirror image.
 
@@ -35,3 +34,23 @@ private void mirror(Node node) {
     node.right = temp; 
   } 
 } 
+
+
+The above method can also be written as:
+public Node mirror(Node n){
+
+	if(n==null)   // node does not exist
+		return n;
+		
+	if(n.lchild!=null)  // left child present
+		mirror(n.lchild);
+		
+	if(n.rchild!=null)  // rignt child present
+		mirror(n.rchild);
+	
+	Node temp=n.lchild;  // swap left and right
+	n.lchild=n.rchild;
+	n.rchild=temp;
+	
+	return n;
+}
