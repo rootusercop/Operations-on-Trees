@@ -28,3 +28,24 @@
         return isSubtreeSymmetric(n1.left, n2.right) &&
             isSubtreeSymmetric(n1.right, n2.left);
     }
+
+
+This method can also be written similar to mirror() method of the tree which is given as:
+
+public boolean isSymmetric(Node n){
+	if (n==null)
+		return true;
+	else return isSubTreesSymmetric(n.lchild,n.rchild);
+}
+public boolean isSubTreesSymmetric(Node n1, Node n2){
+
+	if(n1==null && n2==null)  // if both nodes are empty
+		return true;
+		
+	else if(n1!=null && n2!=null)  // if both nodes are not empty
+	                              // please note that n1.left compared with n2.right and vice-versa to check for mirror images
+	return (n1.data==n2.data && isSubTreesSymmetric(n1.lchild, n2.rchild)&& isSubTreesSymmetric(n1.rchild, n2.lchild));
+		
+		
+	else return false;  // if one of the nodes is empty and the other is not
+}
