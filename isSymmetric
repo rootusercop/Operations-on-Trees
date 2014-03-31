@@ -31,6 +31,7 @@
 
 
 This method can also be written similar to mirror() method of the tree which is given as:
+This is VERY SIMPLE AND DONE BY MYSELF
 
 public boolean isSymmetric(Node n){
 	if (n==null)
