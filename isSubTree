@@ -41,4 +41,20 @@ public class CheckSubTree {
         }
         
         
+        The third method matchTwoTrees can also be implemented similar to mirror() method:
+        
+        public static boolean matchTwoTrees(node n1, node n2){
+        
+         if (n1==null && n2==null) // both empty
+         return true;
+         
+         // data matches and the left and right matches
+         if(n1.data==n2.data && matchTwoTrees(n1.left,n2.left) && matchTwoTrees(n1.right,n2.right))
+         return true;
+         
+         else   // one empty and the other not
+         return false;
+         
+        }
+        
 }
