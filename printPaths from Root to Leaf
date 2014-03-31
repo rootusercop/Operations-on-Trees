@@ -11,10 +11,12 @@ public void printPaths() {
  the path from the root node up to but not including this node, 
  prints out all the root-leaf paths. 
 */ 
-private void printPaths(Node node, int[] path, int pathLen) {   // pathlength=0 and pathlength[1000] both are initialized above. Please see above.
+private void printPaths(Node node, int[] path, int pathLen) {   // pathlength=0 and pathlength[1000] both 
+are initialized above. Please see above.
   if (node==null) return;
 
-  // append this node to the path array. This is the gist of the problem. These 2 lines are the stratergy to solve the problem.
+  // append this node to the path array. This is the gist of the problem. These 2 lines are the stratergy 
+  to solve the problem.
   path[pathLen] = node.data; 
   pathLen++;
 
