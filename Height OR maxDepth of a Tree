@@ -9,3 +9,14 @@
 		
 		return Math.max(ltree+1,rtree+1);
 	}
+
+
+OR
+
+
+
+public static int height(Node n){
+	if(n==null)
+	return 0;
+	return(1+Math.max(height(n.lchild), height(n.rchild)));
+}
