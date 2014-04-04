@@ -32,7 +32,7 @@ public int diameter(){
 }
 	
 
-	
+	Time Complexity: O(n^2)
 
 
 For calculating height we can also use:
