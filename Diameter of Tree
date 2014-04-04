@@ -24,23 +24,19 @@ public int diameter(){
 	public int height(){
 		return height(root);
 	}
-	public int height(Node root){
-		if(root==null)
-			return 0;
-		int ltree= height(root.lchild);
-		int rtree= height(root.rchild);
-		
-		return Math.max(ltree+1,rtree+1);
-	}
 	
-
-
-For calculating height we can also use:
-public static int height(Node n){
+	public static int height(Node n){
 	if(n==null)
 	return 0;
 	return(1+Math.max(height(n.lchild), height(n.rchild)));
 }
+	
+
+	
+
+
+For calculating height we can also use:
+
 
 /*Optimized implementation: The above implementation can be optimized by calculating 
 the height in the same recursion rather than calling a height() separately.
