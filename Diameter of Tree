@@ -35,6 +35,13 @@ public int diameter(){
 	
 
 
+For calculating height we can also use:
+public static int height(Node n){
+	if(n==null)
+	return 0;
+	return(1+Math.max(height(n.lchild), height(n.rchild)));
+}
+
 /*Optimized implementation: The above implementation can be optimized by calculating 
 the height in the same recursion rather than calling a height() separately.
 This optimization reduces time complexity to O(n). */
