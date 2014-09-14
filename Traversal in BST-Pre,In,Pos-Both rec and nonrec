@@ -1,3 +1,27 @@
+// Global Variables
+	public static Queue<TreeNode> queue = new LinkedList<TreeNode>();
+// BFS traversal method for tree
+
+
+
+public static void  BFS(TreeNode root) {
+
+    if (root == null)
+    	return;
+    queue.clear();
+    queue.add(root);
+    while(!queue.isEmpty()){
+    	TreeNode node = queue.remove();
+    	System.out.print(node.data+" ");
+    	if(node.left!=null)
+    		queue.add(node.left);
+    	if(node.right!=null)
+    		queue.add(node.right);
+    }
+
+}  
+  
+  
   /**
          * Performs the operation first on the node itself, then on its left descendants, and
          * finally on its right descendants. In other words, a node is always visited before any of its
