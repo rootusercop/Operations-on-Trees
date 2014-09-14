@@ -7,65 +7,7 @@
 	return (isBSTUtil(root.left, min, root.data-1)&&(isBSTUtil(root.right, root.data+1, max)));
 } 
 
-// OTHER METHOD IS USING ARRAYLIST AS MENTIONED SOMEWHERE BELOW. PLEASE CHECK IT
-
-
-
-/* This is the BEST Solution among all three mentioned in this file.
-   Time Complexity O(n) and Space Complexity O(1) */
-
- public static boolean isBST(Node root)
- {
-  return checkBooleanAndReturn(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
- }
- 
- private static boolean checkBooleanAndReturn(Node root, int max,int min)
- {
-  if(root==null)return true;
-  boolean leftOk=true;
-  boolean rightOk=true;
-  boolean centerOk=true;
-  if(root.left!=null)
-   leftOk=checkBooleanAndReturn(root.left,root.value,min);
-  if(root.value>=min &&root.value<=max)
-   centerOk=true;
-  else
-   centerOk=false;
-  if(root.right!=null)
-   rightOk=checkBooleanAndReturn(root.right,max,root.value);
-  return leftOk&&centerOk&&rightOk;
- }
-
-
-
-/* Using Inorder and WITHOUT auxilary array to check whether a tree is a BST.
-Time Complexity O(n) and Space Complexity O(1) 
-VER IMP NOTE: THIS IS A WRONG PROGRAM. PLEASE DONT FOLLOW THIS. FOLLOW THE PREVIOUS ONE
-
-*/
-
-public boolean forisBST(){
-    
-    return forisBST(root, null);
-}
-public boolean forisBST(Node node, Node prev){
-   
-   // doing inorder and storing the elements in an array
-   if(node==null)
-           return false;
-   
-   
-   boolean left=forisBST(node.lchild, node);
-   
-   if(prev!=null && node.data<=prev.data) // check whether the previous data is null or greater
-           return false;
-   
-   boolean right=forisBST(node.rchild, node);
-   return left&&right;
-                   
-}
-
-
+// OTHER METHOD IS USING ARRAYLIST AS MENTIONED BELOW.Time Complexity O(n) and Space Complexity O(n) ----> NOT AS EFFICIENT AS PREVIOUS METHOD
 
 /* Using Inorder and auxilary array to check whether a tree is a BST.
 Time Complexity O(n) and Space Complexity O(n) */
@@ -74,40 +16,29 @@ public ArrayList<Integer> array=new ArrayList<Integer>();
 
 /* array is a global variable of type ArrayList<E> */
 
+public static void isBST(TreeNode root) {
 
-public boolean isBST(){
-        
-         return isBST(root);
+	modifiedInorder(root);
+	int count=0;
+	
+	for(int i=0;i<array.size()-1;i++){
+		
+		if(array.get(i)<array.get(i+1))
+			count++;
+	}
+	if(count==array.size()-1)
+	System.out.println("Tree is BST");
+	else
+		System.out.println("Tree Not BST");
+	array.clear();
 }
-private boolean isBST(Node node){
-        
-        // doing inorder and storing the elements in an array
-        if(node==null)
-                return false;
-        
-        
-        isBST(node.lchild);
-        array.add(node.data);
-        isBST(node.rchild);
-         int count=0;
-        for(int i=0;i<array.size()-1;i++)  // If i is compared with array.size() and not array.size()-1, 
-                                           // then the ArrayList would go OutOfBounds
-        {
-                if(array.get(i)<array.get(i+1))
-                        count++;
-        }
-        if(count==array.size()-1)
-                return true;
-        else
-                return false;
-                
-                        
+public static void modifiedInorder(TreeNode root) {
+	if(root==null)
+		return;
+	
+	modifiedInorder(root.left);
+	array.add(root.data);
+	modifiedInorder(root.right);	
 }
-
-
-
-
-
-
 
 
