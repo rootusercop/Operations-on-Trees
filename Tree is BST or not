@@ -10,7 +10,7 @@
 public static int getMinValueInBST(TreeNode node){
 	
 	if(node==null)
-		return -1;
+		return -1;  // Or Integer.MIN_VALUE
 	TreeNode prev=null;
 	while(node!=null){
 		prev=node;
@@ -23,8 +23,8 @@ public static int getMinValueInBST(TreeNode node){
 }
 public static int getMaxValueInBST(TreeNode node){
 	
-	if(node==null)
-		return -1;
+	if(node==null)  
+		return -1;   //Or Integer.MAX_VALUE
 	TreeNode prev=null;
 	while(node!=null){
 		prev=node;
