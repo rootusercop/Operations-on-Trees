@@ -8,6 +8,7 @@
          * Solution: when your target values are both less than the current node, you go left. 
          * When they are both greater, you go right. 
          * The first node you encounter that is between your target values is the lowest common ancestor.
+         * The LCA node will be the one, which will be at the center of these two nodes
          */
  
  
