@@ -6,7 +6,35 @@
 		return false;
 	return (isBSTUtil(root.left, min, root.data-1)&&(isBSTUtil(root.right, root.data+1, max)));
 } 
-
+// Helper functions for getting minimum value and maximum value in BST
+public static int getMinValueInBST(TreeNode node){
+	
+	if(node==null)
+		return -1;
+	TreeNode prev=null;
+	while(node!=null){
+		prev=node;
+		node=node.left;
+	}
+	if(prev!=null)
+		return prev.data;
+	else
+		return node.data;
+}
+public static int getMaxValueInBST(TreeNode node){
+	
+	if(node==null)
+		return -1;
+	TreeNode prev=null;
+	while(node!=null){
+		prev=node;
+		node=node.right;
+	}
+	if(prev!=null)
+		return prev.data;
+	else
+		return node.data;
+}
 // OTHER METHOD IS USING ARRAYLIST AS MENTIONED BELOW.Time Complexity O(n) and Space Complexity O(n) ----> NOT AS EFFICIENT AS PREVIOUS METHOD
 
 /* Using Inorder and auxilary array to check whether a tree is a BST.
