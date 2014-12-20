@@ -4,7 +4,7 @@
 		return true;
 	if(root.data<min || root.data>max)
 		return false;
-	return (isBSTUtil(root.left, min, root.data-1)&&(isBSTUtil(root.right, root.data+1, max)));
+	return (isBSTUtil(root.left, min, root.data)&&(isBSTUtil(root.right, root.data, max)));
 } 
 // Helper functions for getting minimum value and maximum value in BST
 public static int getMinValueInBST(TreeNode node){
