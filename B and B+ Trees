@@ -62,6 +62,8 @@ number of disk reads necessary to pull in the data during lookups. Some filesyst
 use B-trees as well for the same reason - they minimize the number of disk lookups necessary,
 which is the real bottleneck.
 
+Q: Why are B and B+ trees balanced ?
+Ans. Because they are constructed using the bottom up approach.
 
 Advantages of B+ Trees over B-Trees
 source -> http://www.quora.com/What-are-the-advantages-of-B+-Tree-over-B-Tree
