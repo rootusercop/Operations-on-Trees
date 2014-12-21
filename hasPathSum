@@ -13,9 +13,9 @@ public boolean hasPathSum(int sum) {
 
 boolean hasPathSum(Node node, int sum) { 
   // return true if we run out of tree and sum==0 
-  if (node == null) { 
-    return(sum == 0); 
-  } 
+  if (node == null) 
+      return(sum == 0); 
+ 
   else { 
   // otherwise check both subtrees 
     int subSum = sum - node.data;   // Very Important Calculation. This is the main stratergy to solve this problem
