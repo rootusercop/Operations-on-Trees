@@ -36,7 +36,7 @@ private void mirror(Node node) {
 } 
 
 
-The above method can also be written as: (PLEASE FOLLOW THIS METHOD. EASY AND DONE BY MYSELF)
+The above method can also be written as:
 public Node mirror(Node n){
 
 	if(n==null)   // node does not exist
