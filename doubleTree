@@ -34,8 +34,7 @@ private void doubleTree(Node node) {
   doubleTree(node.right);
 
   // duplicate this node to its left 
-  Node oldLeft;
-  oldLeft = node.left; 
+  Node oldLeft = node.left; 
   node.left = new Node(node.data); 
   node.left.left = oldLeft; 
 } 
