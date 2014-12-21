@@ -20,9 +20,8 @@ boolean hasPathSum(Node node, int sum) {
   // otherwise check both subtrees 
     int subSum = sum - node.data;   // Very Important Calculation. This is the main stratergy to solve this problem
     
-    boolean ltree=hasPathSum(node.left, subSum);
-    boolean rtree=hasPathSum(node.right, subSum);
-    
-    return (ltree||rtree);   // Even if one of them is true then return true.
+    boolean ltree=hasPathSum(node.left, subSum);   // calculate the pathSum for the left node
+    boolean rtree=hasPathSum(node.right, subSum);  // calculate the pathSum for the right node
+    return (ltree||rtree);   // Even if one of them is true then return true. 
   } 
 } 
