@@ -25,9 +25,8 @@ public void doubleTree() {
 }
 
 private void doubleTree(Node node) { 
-
-
-  if (node == null) return;
+  if (node == null)
+        return;
 
   // Go to the leaf nodes by recursive traversing
   doubleTree(node.left); 
