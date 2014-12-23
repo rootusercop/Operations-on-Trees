@@ -1,3 +1,31 @@
+ 
+/* 
+ Background: The below explanation is for the problem that I encountered while passing complex datatype such as array,
+ between two PHP pages. The same explanation does apply to other complex datatypes as well, such as in this case,
+ a binary tree.
+
+Source of Explanation: http://www.tuxradar.com/practicalphp/5/11/0
+As arrays are complex data types, you cannot see their contents directly. 
+If you try printing out the value of an array, you will see PHP just outputs "Array", 
+which means that passing the value of an array through a link requires a lot of work. 
+Luckily, PHP comes to the rescue with four functions
+that do all the hard work for you: serialize(), unserialize(), urlencode(), and urldecode().
+
+Serialize() converts an array, given as its only parameter, 
+into a normal string that you can save in a file, pass in a URL, etc. 
+Unserialize() is the opposite of serialize() - it takes a serialize()d string and converts it back to an array.
+
+Urlencode() and urldecode() also work in tandem, and convert the string that is 
+sent to them as their only parameter into a version that is safe to be passed across the web. 
+All characters that aren't letters and numbers get converted into web-safe codes that can be 
+converted back into the original text using urldecode().
+
+Passing arrays across pages is best done using urlencode() and urldecode(), 
+however you should consider using them both on any data you pass across the web, just
+to make sure there are no incompatible characters in there. 
+ 
+ */
+ 
  /**Given a binary tree, serialize it into a string. In other words, generate a string
  representation of the tree such that you can uniquely construct the tree back from the string alone.
 
