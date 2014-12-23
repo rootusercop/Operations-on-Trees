@@ -1,8 +1,8 @@
  
 /* 
  Background: The below explanation is for the problem that I encountered while passing complex datatype such as array,
- between two PHP pages. The same explanation does apply to other complex datatypes as well, such as in this case,
- a binary tree.
+ between two PHP pages using POST method. The same explanation does apply to other complex datatypes as well, 
+ such as in this case, a binary tree.
 
 Source of Explanation: http://www.tuxradar.com/practicalphp/5/11/0
 As arrays are complex data types, you cannot see their contents directly. 
