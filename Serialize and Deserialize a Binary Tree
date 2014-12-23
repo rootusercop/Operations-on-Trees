@@ -23,7 +23,9 @@ converted back into the original text using urldecode().
 Passing arrays across pages is best done using urlencode() and urldecode(), 
 however you should consider using them both on any data you pass across the web, just
 to make sure there are no incompatible characters in there. 
- 
+
+Solution for passing arrays through POST method between PHP pages: Solution: http://stackoverflow.com/questions/14071587/php-pass-array-through-post
+
  */
  
  /**Given a binary tree, serialize it into a string. In other words, generate a string
