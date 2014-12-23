@@ -26,7 +26,20 @@ to make sure there are no incompatible characters in there.
 
 Solution for passing arrays through POST method between PHP pages: Solution: http://stackoverflow.com/questions/14071587/php-pass-array-through-post
 Another solution using SESSION VARIABLE: http://stackoverflow.com/questions/10260720/pass-array-between-two-php-files
- */
+For Example: Using Session Variable
+On the sending page: 
+<?php
+session_start();  // start a session
+$column_headers = array("A","B","C","D");   // create array
+$_SESSION['column_headers']=$column_headers; // store in session variable
+?>
+
+On the receiving page:
+<?php
+session_start(); // start session to retrieve the session variable
+$column_headers=$_SESSION['column_headers']; // retrieve the session varaible
+?>
+*/
  
  /**Given a binary tree, serialize it into a string. In other words, generate a string
  representation of the tree such that you can uniquely construct the tree back from the string alone.
