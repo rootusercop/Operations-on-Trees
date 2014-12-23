@@ -25,7 +25,7 @@ however you should consider using them both on any data you pass across the web,
 to make sure there are no incompatible characters in there. 
 
 Solution for passing arrays through POST method between PHP pages: Solution: http://stackoverflow.com/questions/14071587/php-pass-array-through-post
-
+Another solution using SESSION VARIABLE: http://stackoverflow.com/questions/10260720/pass-array-between-two-php-files
  */
  
  /**Given a binary tree, serialize it into a string. In other words, generate a string
