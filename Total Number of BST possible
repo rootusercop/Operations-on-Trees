@@ -8,10 +8,10 @@ public int countBST(int nodes){
 	if(nodes==0||nodes==1)
 		return 1;
 	else{
-		for(int k=1;k<=nodes;k++){
+		for(int k=0;k<nodes;k++){         // iterate from 0 to (n-1)
 			int leftTree=countBST(k);
 			int rightTree=countBST(nodes-k-1);
-			totalTrees= totalTrees+leftTree*rightTree; 
+			totalTrees += leftTree*rightTree;   // add the previous results
 		}
 	}
 	return totalTrees;
