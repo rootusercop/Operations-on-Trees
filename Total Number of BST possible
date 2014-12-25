@@ -12,6 +12,8 @@ public int countBST(int nodes){
 			int leftTree=countBST(k);
 			int rightTree=countBST(nodes-k-1);
 			totalTrees += leftTree*rightTree;   // add the previous results
+			// The above 3 lines can also be replaced with a single line
+			// totalTrees += countBST(k)*countBST(nodes-k-1);
 		}
 	}
 	return totalTrees;
