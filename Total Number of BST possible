@@ -9,9 +9,9 @@ public int countBST(int nodes){
 		return 1;
 	else{
 		for(int k=1;k<=nodes;k++){
-			int leftTree=countBST(k-1);
-			int rightTree=countBST(nodes-k);
-			totalTrees= totalTrees+leftTree*rightTree; // Forumla is total=summation(left*right)
+			int leftTree=countBST(k);
+			int rightTree=countBST(nodes-k-1);
+			totalTrees= totalTrees+leftTree*rightTree; 
 		}
 	}
 	return totalTrees;
