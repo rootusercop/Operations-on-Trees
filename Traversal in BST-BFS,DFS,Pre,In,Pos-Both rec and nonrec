@@ -1,29 +1,44 @@
-// Global Variables
-	public static Queue<TreeNode> queue = new LinkedList<TreeNode>();
-// BFS traversal method for tree
+Question: ITERATIVE BFS and  ITERATIVE DFS Traversals of the tree 
+Solution:
+private static void bfs(BST bst) {      // BEST method for BFS Traversal
+	// Similar to the method which prints nodes at every level of the BST
+	Queue<Node> queue = new LinkedList<Node>();
+	queue.add(bst.root);
+	while(!queue.isEmpty()){
+		Node n = queue.poll();
+		System.out.print(n.data+" ");
+		if(n.lchild!=null)
+			queue.add(n.lchild);
+		if(n.rchild!=null)
+			queue.add(n.rchild);
+	}
+	System.out.println();
+}
+ 
+private static void dfs(BST bst) {     // BEST method for DFS Traversal
+	Stack<Node> stack = new Stack<Node>();
+	stack.push(bst.root);
+	while(!stack.isEmpty()){
+		Node n = stack.pop();
+		System.out.print(n.data+" ");
+		if(n.rchild!=null)   // First insert the RCHILD into STACK, reason being, the tree will be printed from LEFT TO RIGHT
+// However, even if LCHILD into STACK is inserted first, it is NOT worng, just that the tree will be printed from RIGHT TO LEFT
+			stack.push(n.rchild);
+		if(n.lchild!=null)  // Then insert LCHILD
+			stack.push(n.lchild);
+	}
+	System.out.println();
+}
 
 
 
-public static void  BFS(TreeNode root) {
+Question: RECURSIVE DFS Traversal of the tree 
+Solution:
 
-    if (root == null)
-    	return;
-    queue.clear();
-    queue.add(root);
-    while(!queue.isEmpty()){
-    	TreeNode node = queue.remove();
-    	System.out.print(node.data+" ");
-    	if(node.left!=null)
-    		queue.add(node.left);
-    	if(node.right!=null)
-    		queue.add(node.right);
-    }
-
-}  
-  
-  
   // Global Variable for DFS
   	public static Stack<TreeNode> stack = new Stack<TreeNode>();
+  	
+ 
   // DFS Program (Recursive Program)
   public static void DFS(TreeNode root) {
 	if(root == null)
