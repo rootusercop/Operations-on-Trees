@@ -32,7 +32,7 @@ private static void dfs(BST bst) {     // BEST method for DFS Traversal
 
 
 Recursion: Always remember that recursion is calling the method again and again STACKWISE(It works similar to STACK operations)
-Recursion works on Stack Frames. It works similar to STACK operations.
+Recursion works on STACK FRAMES. It works similar to STACK operations.
 
 Question: RECURSIVE DFS Traversal of the tree 
 Solution:
