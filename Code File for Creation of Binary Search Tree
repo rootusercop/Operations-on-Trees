@@ -115,21 +115,21 @@ public int maxDepth(Node node){
 
 
 public boolean balTree(){
-	return balTree(root);
-}
-public boolean balTree(Node node){
-	if(node==null)
-		return true;
-	else{
-		int lsize=size(root.lchild);
-		int rsize=size(root.rchild);
-		
-		if(Math.abs(lsize-rsize)>1)
-			return false;
-		else return true;
-		
+		return balTree(root);
 	}
-}
+	public boolean balTree(Node node){
+		if(node==null)
+			return true;
+		else{
+			int lsize=maxDepth(root.lchild);
+			int rsize=maxDepth(root.rchild);
+			
+			if(Math.abs(lsize-rsize)>1)
+				return false;
+			else return true;
+			
+		}
+	}
 
 
 }
