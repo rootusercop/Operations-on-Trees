@@ -144,6 +144,13 @@ public class BinSearchTree{
 		myTree.addNode(new Node(20));
 		myTree.addNode(new Node(10));
 		myTree.addNode(new Node(5));
+		myTree.addNode(new Node(85));
+		myTree.addNode(new Node(35));
+		myTree.addNode(new Node(45));
+		myTree.addNode(new Node(32));
+		myTree.addNode(new Node(15));
+		myTree.addNode(new Node(38));
+		myTree.addNode(new Node(36));
 		myTree.display();
 		System.out.println(myTree.isBST());
 		System.out.println(myTree.size());
