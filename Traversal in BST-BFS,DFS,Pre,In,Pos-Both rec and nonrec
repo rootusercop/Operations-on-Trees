@@ -21,7 +21,7 @@ private static void dfs(BST bst) {     // BEST method for DFS Traversal
 	while(!stack.isEmpty()){
 		Node n = stack.pop();
 		System.out.print(n.data+" ");
-		if(n.rchild!=null)   // First insert the RCHILD into STACK, reason being, the tree will be printed from LEFT TO RIGHT
+		if(n.rchild!=null)// First insert the RCHILD into STACK, reason being, the tree will be printed from LEFT TO RIGHT
 // However, even if LCHILD into STACK is inserted first, it is NOT worng, just that the tree will be printed from RIGHT TO LEFT
 			stack.push(n.rchild);
 		if(n.lchild!=null)  // Then insert LCHILD
