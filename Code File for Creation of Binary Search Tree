@@ -51,6 +51,7 @@ public Node root=null;
 	}
 	public void display(){
 		display(root);
+		System.out.println();
 	}
 	
 	public void display(Node n){
@@ -60,7 +61,7 @@ public Node root=null;
 		else{
 			
 		    display(tempNode.lchild);
-			System.out.println(tempNode.data+" ");
+			System.out.print(tempNode.data+" ");
 			display(tempNode.rchild);
 			
 		}
