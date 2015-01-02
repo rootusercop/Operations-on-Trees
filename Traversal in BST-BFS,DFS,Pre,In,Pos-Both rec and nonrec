@@ -38,18 +38,17 @@ Solution:
   // Global Variable for DFS
   	public static Stack<TreeNode> stack = new Stack<TreeNode>();
   	
- 
-  // DFS Program (Recursive Program)
-  public static void DFS(TreeNode root) {
+
+  public static void recursiveDFS(TreeNode root) {   // Recursive DFS Program
 	if(root == null)
 		return;
 	
 	stack.push(root);
 	System.out.print(root.data+" ");
     if(root.left!=null)
-    	DFS(root.left);
+    	recursiveDFS(root.left);
     if(root.right!=null)
-    	DFS(root.right);
+    	recursiveDFS(root.right);
     
     stack.pop();
 }
