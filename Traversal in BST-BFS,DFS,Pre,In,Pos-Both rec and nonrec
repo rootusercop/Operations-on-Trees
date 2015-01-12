@@ -1,3 +1,6 @@
+
+***************************************** DFS and BFS in BST *****************************************
+
 Question: ITERATIVE BFS and  ITERATIVE DFS Traversals of the tree 
 Solution:
 private static void bfs(BST bst) {      // BEST method for BFS Traversal
@@ -30,7 +33,7 @@ private static void dfs(BST bst) {     // BEST method for DFS Traversal
 	System.out.println();
 }
 
-
+************************************ End of DFS and BFS in BST **************************************
 
 ***************************** DFS and BFS in Adjacency Matrix(or Graph) *****************************
 /*
