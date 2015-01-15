@@ -1,6 +1,7 @@
-Question: Print a BST in 2 ways:
-1. Print nodes at every level.
-2. Print node paths from root to the leaf.
+Question: Print a BST in 3 ways:
+1. Print nodes at every level. (NOTE: This prints all the nodes row-wise in a single line)
+2. Print rows of a binary tree, terminating each row with a carriage return
+3. Print node paths from root to the leaf.
 
 Solution:
 The below mentioned two methods prints the BST in 2 ways
@@ -18,9 +19,12 @@ public static void main(String[] args) {
 
 		BST bst = BinSearchTree.makeTree();
 		System.out.println("Printing nodes of the tree at every level");
-		printNodesOnEveryLevel(bst);
+		printNodesOnEveryLevelInSingleLine(bst);
+		System.out.println("Function to print the rows of a binary tree, terminating each row with a carriage return");
+		printRowsTerminatingEachRowWithCarriageReturn(bst);
 		System.out.println("Printing Node Paths from root to leaf");
 		printNodesFromRootToLeaf(bst);
+		
 	}
 
 private static void printNodesFromRootToLeaf(BST bst) {
@@ -49,8 +53,27 @@ private static void printPaths(int[] path, int pathLength) {
 		System.out.print(path[i]+" ");
 	System.out.println();
 }
-
-private static void printNodesOnEveryLevel(BST bst) {
+private static void printRowsTerminatingEachRowWithCarriageReturn(BST bst){
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(bst.root);
+		queue.add(null);  // use null as 'end of certain depth' marker
+		while(queue.size()>1 || queue.peek()!=null){
+			Node node=queue.remove();
+			if(node!=null){
+				System.out.print(node.data+" ");
+				if(node.lchild!=null)
+					queue.add(node.lchild);
+				if(node.rchild!=null)
+					queue.add(node.rchild);
+			}
+			else{// node==null
+				System.out.println("\r");
+				queue.add(null);  // use null as 'end of certain depth' marker
+			}
+			
+		}
+	}
+private static void printNodesOnEveryLevelInSingleLine(BST bst) {
 	Queue<Node> queue = new LinkedList<Node>();
 	queue.add(bst.root);
 	while(!queue.isEmpty()){
