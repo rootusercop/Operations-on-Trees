@@ -19,8 +19,8 @@ public static void main(String[] args) {
 	convertBSTToCircularDLL(bst.root);
 	//printDLL(head);
 }
-
-/*private static void printDLL(Node n) {
+/*
+private static void printDLL(Node n) {
 
 	while(n!=null){
 		System.out.print(n.data+" ");
@@ -42,8 +42,8 @@ private static void convertBSTToCircularDLL(Node n) {
 	prev = n;
 	convertBSTToCircularDLL(n.rchild);
 	if(prev.rchild==null){ // last node in list
-		head.lchild = prev;
-		prev.rchild = head;
+		head.lchild = prev; // If we do not want list to be circular then change this statement to head.lchild=null;
+		prev.rchild = head; // If we do not want list to be circular then change this statement to prev.rchild=null;     
 	}
 }
 /*
