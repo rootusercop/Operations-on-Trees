@@ -1,7 +1,7 @@
 Operations-on-Trees
 ============================
 
-This repository provides the important operations performed on Trees.
+This repository provides the important operations performed on Trees
 
 The height (aka depth) of the tree is considered based on the number of nodes and not on the number of edges.
 
