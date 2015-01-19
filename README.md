@@ -1,4 +1,4 @@
-Operations-on-Tree
+Operations-on-Trees
 ============================
 
 This repository provides the important operations performed on Trees.
