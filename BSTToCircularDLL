@@ -32,7 +32,7 @@ private static void convertBSTToCircularDLL(Node n) {
 	if(n==null)
 		return;
 	convertBSTToCircularDLL(n.lchild);
-	if(prev==null){  // first node in list
+	if(prev==null){  // FIRST NODE IN LIST
 		head=n;
 	}
 	else{
@@ -41,7 +41,7 @@ private static void convertBSTToCircularDLL(Node n) {
 	}
 	prev = n;
 	convertBSTToCircularDLL(n.rchild);
-	if(prev.rchild==null){ // last node in list
+	if(prev.rchild==null){ // LAST NODE IN LIST
 		head.lchild = prev; // If we do not want list to be circular then change this statement to head.lchild=null;
 		prev.rchild = head; // If we do not want list to be circular then change this statement to prev.rchild=null;     
 	}
