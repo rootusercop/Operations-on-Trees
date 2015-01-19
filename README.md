@@ -1,7 +1,7 @@
 Operations-on-Tree
 ============================
 
-This repository provides the 14 important operations to be performed on the Binary Trees.
+This repository provides the 14 important operations to be performed on the Trees.
 
 The height (aka depth) of the tree is considered based on the number of nodes and not on the number of edges.
 
