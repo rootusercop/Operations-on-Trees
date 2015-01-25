@@ -43,146 +43,161 @@ $column_headers=$_SESSION['column_headers']; // retrieve the session varaible
  
  /**Given a binary tree, serialize it into a string. In other words, generate a string
  representation of the tree such that you can uniquely construct the tree back from the string alone.
+package SerializeAndDesirializeBST;
 
-Assume the availability of a serialization function that takes the node of a tree and serializes it into a string. ie. Your job is to take care of the tree structure.
-         * Method to serialize a binary tree.
-         * for the input:
-         * 
-                                                         S-19
-                         E-5                                                        X-23
-        A-1                                R-18
-                C-3                H-8
-                                        M-13
-                 
-         * 
-         * returns 19 5 1 NULL 3 NULL NULL 18 8 NULL 13 NULL NULL NULL 23 NULL NULL 
-         * @param node
-         * @return
-         */
-        public static String serialize(Node node) {
-                StringBuilder builder = new StringBuilder();
-                serialize(builder, node);
-                return builder.toString();
-        }
-        
-        /**
-         * Makes a preorder traversal, keeping null nodes of the leaves
-         * @param builder
-         * @param node
-         */
-        private static void serialize(StringBuilder builder, Node node) {
-                if (node == null) {
-                        return;
-                }
-                
-                builder.append(node.value);
-                builder.append(" ");
-                
-                if (node.left != null) {
-                        serialize(builder, node.left);
-                }
-                else {
-                        builder.append("NULL ");
-                }
-                
-                if (node.right != null) {
-                        serialize(builder, node.right);
-                }
-                else {
-                        builder.append("NULL ");
-                }
-        }
-        
-        /**
-         * Receives a string and parse it to a binary tree
-         * @param str
-         * @return
-         */
-        public static Node deserialize(String str) {
-                if (str == null || str.isEmpty()) {
-                        return null;
-                }
-                String[] data = str.split(" ");
-                Queue<Node> q = new Queue<BinarySearchTree.Node>();
-                BinarySearchTree b = new BinarySearchTree();
-                
-                int n = 0;
-                for(String s : data) {
-                        n++;
-                        if (s.equals("NULL")) {
-                                q.enqueue(null);
-                        } else {
-                                Node node = b.new Node(s, Integer.parseInt(s), n);
-                                q.enqueue(node);
-                        }
-                }
-                Node root = deserialize(q, q.dequeue());
-                return root;
-        }
+import java.util.LinkedList;
+import java.util.Queue;
 
-        /**
-         * 
-         * @param q
-         * @param node
-         * @return
-         */
-        private static Node deserialize(Queue<Node> q, Node node) {
-                if (node == null) {
-                        return null;
-                }
-                node.left = deserialize(q, q.dequeue());
-                node.right = deserialize(q, q.dequeue());
+public class UsingQueue {
+	public static void main(String[] args) {
+	BST tree = BinSearchTree.createTree();
+	tree.display(tree.root);
+	String treeString = serialize(tree.root);
+	Node deserializedRoot = deserialize(treeString);
+	tree.display(deserializedRoot);
+	}
+
+
+	private static String serialize(Node root) {
+		StringBuilder sb = new StringBuilder();
+		serialize(sb,root);
+		return sb.toString().trim();
+	}
+
+	private static void serialize(StringBuilder sb, Node node) {
+		if(node==null)
+			return;
+		
+		sb.append(node.data);
+		sb.append(" ");
+		
+		  if (node.lchild != null) {
+              serialize(sb, node.lchild);
+      }
+      else {
+              sb.append("NULL");
+              sb.append(" ");
+      }
+      
+      if (node.rchild != null) {
+              serialize(sb, node.rchild);
+      }
+      else {
+              sb.append("NULL");
+              sb.append(" ");
+      }
+	}
+	 public static Node deserialize(String str) {
+         if (str == null || str.isEmpty()) {
+                 return null;
+         }
+         String[] data = str.split(" ");
+         Queue<Node> q = new LinkedList<Node>();
+         
+         //System.out.println(Arrays.toString(data));
+
+         for(String s : data) {
                 
-                return node;
-        }
-       
-       
-       
-       
-       
-       
-       // PLEASE DONT SEE THE MAIN, ITS NOT REQUIRED. THE MAIN CAN HAVE NORMAL TREE WITH LEFT AND RIGHT
-       // IT DOESNT NEED TO BE LIKE THE WAY ITS MENTIONED BELOW
-       
-       
-       
-        
-        public static void main(String[] args) {
-                /*
-                                                         S-19
-                         E-5                                                        X-23
-        A-1                                R-18
-                C-3                H-8
-                                        M-13
-                 */
-                
-                
-                BinarySearchTree BST = new BinarySearchTree();
-                BST.put("S", 19);
-                BST.put("E", 5);
-                BST.put("X", 23);
-                BST.put("A", 1);
-                BST.put("R", 18);
-                BST.put("C", 3);
-                BST.put("H", 8);
-                BST.put("M", 13);
-//                System.out.println(BST.height());
-//                BST.preorderTraversal();
-//                BST.preorderNoRecursionTraveral();
-//                BST.inorderTraversal();
-                BST.inorderTraversalNoRecursion();
-//                BST.postorderTraversal();
-//                BST.postorderTraversalNoRecursion();
-                
-                /*String str = BinarySearchTree.serialize(BST.root);
-                System.out.println(str);
-                BinarySearchTree.deserialize(str);*/
-                
-//                BinarySearchTree balanced = new BinarySearchTree();
-//                balanced.put("S", 19);
-//                balanced.put("E", 5);
-//                balanced.put("X", 23);
-//                balanced.put("A", 1);
-//                System.out.println(BST.isBalanced());
-//                System.out.println(balanced.isBalanced());
-        }
+                 if (s.equals("NULL")) {
+                         q.add(null);
+                 } else {
+                         Node node = new Node(Integer.parseInt(s));
+                         q.add(node);
+                 }
+         }
+         Node root = deserialize(q, q.remove());
+         return root;
+ }
+	 private static Node deserialize(Queue<Node> q, Node node) {
+         if (node == null) {
+                 return null;
+         }
+         node.lchild = deserialize(q, q.remove());
+         node.rchild= deserialize(q, q.remove());
+         
+         return node;
+ }
+}
+class Node{
+	public int data;
+	public Node lchild;
+	public Node rchild;
+	
+	public Node(int data) {
+	this.data=data;
+	lchild=null;
+	rchild=null;
+	}
+}
+
+class BST {
+public Node root=null;
+
+	public void addNode(Node n){
+		if(root==null)
+		{
+			root=n;
+			System.out.println(n.data+" added as the root to the tree");
+		}
+		else{
+			
+			Node current=root;
+			Node parent;
+			while(true){
+				parent=current;
+				
+				if(n.data<current.data){
+					current=current.lchild;
+					if(current==null){
+						parent.lchild=n;
+						return;
+					}
+				}
+				else{
+					current=current.rchild;
+					if(current==null){
+						parent.rchild=n;
+						return;
+					}
+				}
+				
+			}
+		}
+		
+	}
+	public void display(Node n){
+		Node tempNode=n;
+		if(tempNode==null)
+			return;
+		else{
+			
+		    display(tempNode.lchild);
+			System.out.print(tempNode.data+" ");
+			display(tempNode.rchild);
+			
+		}
+	}
+}
+class BinSearchTree{
+	
+	public static BST createTree() {
+		BST myTree=new BST();
+		System.out.println("Adding the elemets");
+		myTree.addNode(new Node(40));
+		myTree.addNode(new Node(50));
+		myTree.addNode(new Node(30));
+		myTree.addNode(new Node(80));
+		myTree.addNode(new Node(20));
+		myTree.addNode(new Node(10));
+		myTree.addNode(new Node(5));
+		myTree.addNode(new Node(85));
+		myTree.addNode(new Node(35));
+		myTree.addNode(new Node(45));
+		myTree.addNode(new Node(32));
+		myTree.addNode(new Node(15));
+		myTree.addNode(new Node(38));
+		myTree.addNode(new Node(36));
+		return myTree;
+		
+	}
+}
