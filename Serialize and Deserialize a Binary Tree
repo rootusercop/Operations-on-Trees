@@ -45,6 +45,8 @@ $column_headers=$_SESSION['column_headers']; // retrieve the session varaible
  representation of the tree such that you can uniquely construct the tree back from the string alone.
 package SerializeAndDesirializeBST;
 
+package SerializeAndDesirializeBST;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -52,9 +54,11 @@ public class UsingQueue {
 	public static void main(String[] args) {
 	BST tree = BinSearchTree.createTree();
 	tree.display(tree.root);
+	System.out.println();
 	String treeString = serialize(tree.root);
 	Node deserializedRoot = deserialize(treeString);
 	tree.display(deserializedRoot);
+	System.out.println();
 	}
 
 
@@ -101,8 +105,7 @@ public class UsingQueue {
                  if (s.equals("NULL")) {
                          q.add(null);
                  } else {
-                         Node node = new Node(Integer.parseInt(s));
-                         q.add(node);
+                         q.add(new Node(Integer.parseInt(s)));
                  }
          }
          Node root = deserialize(q, q.remove());
