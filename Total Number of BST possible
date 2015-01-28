@@ -25,6 +25,6 @@ public int countBST(int nodes){
 
 Time complexity of above implementation is equivalent to nth catalan number.
 
- T(n) =  summation(n-1 to 0) {T(i)*T(n-i)}   for n>=0;
+ T(n) =  summation(0 to n-1) {T(i)*T(n-i)}   for n>=0;
 
 The value of nth catalan number is exponential that makes the time complexity exponential.
