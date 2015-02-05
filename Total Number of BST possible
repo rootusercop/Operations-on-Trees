@@ -23,8 +23,9 @@ public int countBST(int nodes){
 	return totalTrees;
 }
 
-Time complexity of above implementation is equivalent to nth catalan number.
+The number of full binary trees with number of nodes n is the nth Catalan number. 
+Catalan Numbers are calculated as which is complexity O(n).
 
- T(n) =  summation(0 to n-1) {T(i)*T(n-i)}   for n>=0;
+http://mathworld.wolfram.com/BinaryTree.html
 
-The value of nth catalan number is exponential that makes the time complexity exponential.
+http://en.wikipedia.org/wiki/Catalan_number#Applications_in_combinatorics
