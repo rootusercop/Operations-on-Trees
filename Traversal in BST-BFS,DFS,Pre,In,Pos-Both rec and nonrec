@@ -307,28 +307,34 @@ traversal order anyway, so a breadth-first search on that would be trivial, also
                 inorderTraversal(node.right);
         }
         
-        public void inorderTraversalNoRecursion() {
-                if (root == null) {
-                        return;
-                }
-                Stack<Node> s = new Stack<>();
-                Node curr = this.root;
-                s.push(curr);
-                while (!s.isEmpty()) {
-                        while (curr.left != null) {
-                                s.push(curr.left);
-                                curr = curr.left;
-                        }
-                        Node n = s.pop();
-                        System.out.print(n.key + " ");
-                        if (n.right != null) {
-                                s.push(n.right);
-                                curr = n.right;
-                        }
-                }
-                
-                System.out.println();
-        }
+       
+	public static void inorder(Node root){
+		Node temp = root;
+		if(temp==null)
+			return;
+		
+		// The reason why we use Stack is because Stack can resemble recursive calls
+		Stack<Node> s = new Stack<Node>();
+		while(!s.isEmpty() || temp!=null){
+			
+			if(temp!=null){
+				s.push(temp);
+				temp=temp.lchild;
+			}
+			else{
+				temp=s.pop();  // trace the previous node
+				System.out.print(temp.data + " ");
+				temp=temp.rchild;
+			}
+			
+		}
+		System.out.println();
+	}
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(n)
+ */
         
         /**
          * 
