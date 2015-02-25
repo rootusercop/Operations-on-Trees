@@ -55,6 +55,11 @@ private static void findKthLargestNode(Node root, int k) {
 		}
 		findKthLargestNode(root.left, k);
 	}
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(1)
+ */
 private static void findKthSmallestNode(Node root, int k) {
 	// similar to PREORDER traversal
 	
@@ -68,6 +73,11 @@ private static void findKthSmallestNode(Node root, int k) {
 	}
 	findKthSmallestNode(root.right, k);
 }
+/*
+ * Analysis:
+ * Time Complexity = O(n)
+ * Space Complexity = O(1)
+ */
 public static Node createTree(int[] a,int low, int high) {
 	// create tree using sorted array by modified binary search algorithm
 	
