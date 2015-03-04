@@ -3,10 +3,10 @@ Diameter of a tree: The diameter of a tree is defined as the number of nodes bet
 and the extreme right node of a tree
 */
 
-public int diameter(){
+	public static int diameter(){
 		return diameter(root);
 	}
-	public int diameter(Node root){
+	public static int diameter(Node root){
 		if(root==null)
 			return 0;
 		
@@ -21,18 +21,15 @@ public int diameter(){
 	}
 	
 	
-	public int height(){
-		return height(root);
-	}
-	
 	public static int height(Node n){
 	if(n==null)
-	return 0;
-	return(1+Math.max(height(n.lchild), height(n.rchild)));
-}
-	
-
+		return 0;
+	int left = height(n.left);
+	int right = height(n.right);
+	return Math.max(left+1,right+1);
+	}
 	Time Complexity: O(2n)
+	Space Complexity: O(1)
 
 
 For calculating height we can also use:
