@@ -1,16 +1,23 @@
-public boolean balTree(){
+public static boolean balTree(){
 	return balTree(root);
 }
-public boolean balTree(Node node){
+public static boolean balTree(Node node){
 	if(node==null)
 		return true;
 	else{
-		int lsize=size(root.lchild);
-		int rsize=size(root.rchild);
+		int lheight=height(root.lchild);
+		int rheight=height(root.rchild);
 		
-		if(Math.abs(lsize-rsize)>1)
+		if(Math.abs(lheight-rheight)>1)
 			return false;
 		else return true;
 		
 	}
+}
+public static int height(Node n){
+	if(n==null)
+		return 0;
+	int left = height(n.left);
+	int right = height(n.right);
+	return Math.max(left+1,right+1);
 }
