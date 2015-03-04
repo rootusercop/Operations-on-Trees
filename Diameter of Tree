@@ -16,7 +16,7 @@ public int diameter(){
 		int ldiameter=diameter(root.lchild);
 		int rdiameter=diameter(root.rchild);
 		
-		return Math.max(lheight+1+rheight, Math.max(ldiameter, rdiameter));
+		return Math.max((lheight+1+rheight), Math.max(ldiameter, rdiameter));
 		
 	}
 	
