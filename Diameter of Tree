@@ -39,7 +39,7 @@ and the extreme right node of a tree
 	
 	
 	
-	
+	// Program to calculate the height of the BST
 	
 	public static int height(Node n){
 	if(n==null)
@@ -48,6 +48,8 @@ and the extreme right node of a tree
 	int right = height(n.right);
 	return Math.max(left+1,right+1);
 	}
+	Time Complexity: O(n)
+	Space Complexity: O(1)
 	
 
 
