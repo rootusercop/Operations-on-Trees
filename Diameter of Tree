@@ -1,115 +1,65 @@
 /*
-Diameter of a tree: The diameter of a tree is defined as the number of nodes between the extreme left node
-and the extreme right node of a tree
-*/
+	Diameter of a tree: The diameter of a tree is defined as the number of nodes between the extreme lchild node
+	and the extreme rchild node of a tree
 	Source: http://www.geeksforgeeks.org/diameter-of-a-binary-tree/
-	public static int diameter(){
-		return diameter(root,0);
+	*/
+		
+	
+	// BEST SOLUTION FOR diameter   -> Time Complexity = O(n), Space Complexity = O(1)
+	int diameterOpt(Node root, int height)
+	{
+	  /* lh --> Height of lchild subtree
+	     rh --> Height of rchild subtree */
+	  int lh = 0, rh = 0;
+	  
+	  /* ldiameter  --> diameter of lchild subtree
+	     rdiameter  --> Diameter of rchild subtree */
+	  int ldiameter = 0, rdiameter = 0;
+	  
+	  if(root == null)
+	  {
+	     height = 0;
+	     return 0; /* diameter is also 0 */
+	  }
+	  
+	  /* Get the heights of lchild and rchild subtrees in lh and rh
+	    And store the returned values in ldiameter and ldiameter */
+	  ldiameter = diameterOpt(root.lchild, lh);
+	  rdiameter = diameterOpt(root.rchild, rh);
+	  
+	  /* Height of current node is max of heights of lchild and
+	     rchild subtrees plus 1*/
+	  height = Math.max(lh, rh) + 1;
+	  
+	  return Math.max(lh + rh + 1, Math.max(ldiameter, rdiameter));
 	}
-	public static int diameter(Node root, int height){
-		if(root==null)
-			return 0;
-		
-		int lheight=0, rheight=0;
-		int ldiameter=0, rdiameter=0;
-		
-		if(root==null){
-		    height=0;
-		    return 0; /* diameter is also 0 */
-		}
-		
-		ldiameter=diameter(root.lchild, lheight);
-		rdiameter=diameter(root.rchild, rheight);
-		
-		height=Math.max(lh,rh)+1;
-		
-		return Math.max((lheight+1+rheight), Math.max(ldiameter, rdiameter));
-		
-	}
+	/*
 	Time Complexity: O(n)
 	Space Complexity: O(1)
+	*/
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// Program to calculate the height of the BST
-	
-	public static int height(Node n){
-	if(n==null)
-		return 0;
-	int left = height(n.left);
-	int right = height(n.right);
-	return Math.max(left+1,right+1);
-	}
-	Time Complexity: O(n)
-	Space Complexity: O(1)
-	
-
-
-For calculating height we can also use:
-
-	
-	public int height(Node root){
-		if(root==null)
-			return 0;
-		int ltree= height(root.lchild);
-		int rtree= height(root.rchild);
-		
-		return Math.max(ltree+1,rtree+1);
-	}
-
-/*Optimized implementation: The above implementation can be optimized by calculating 
-the height in the same recursion rather than calling a height() separately.
-This optimization reduces time complexity to O(n). */
-
-/* Time Complexity of this solution is: O(n) */
-
-/*The second parameter is to store the height of tree.
-   Initially, we need to pass a pointer to a location with value
-   as 0. So, function should be used as follows:
- 
-   int height = 0;
-   struct node *root = SomeFunctionToMakeTree();
-   int diameter = diameterOpt(root, &height); */
-   
-   
-   
-int diameterOpt(struct node *root, int* height)
-{
-  /* lh --> Height of left subtree
-      rh --> Height of right subtree */
-  int lh = 0, rh = 0;
-  
-  /* ldiameter  --> diameter of left subtree
-      rdiameter  --> Diameter of right subtree */
-  int ldiameter = 0, rdiameter = 0;
-  
-  if(root == NULL)
-  {
-    *height = 0;
-     return 0; /* diameter is also 0 */
-  }
-  
-  /* Get the heights of left and right subtrees in lh and rh
-    And store the returned values in ldiameter and ldiameter */
-    
-    
-  ldiameter = diameterOpt(root->left, &lh);
-  rdiameter = diameterOpt(root->right, &rh);
-  
-  
-  /* Height of current node is max of heights of left and
-     right subtrees plus 1 */
-     
-  *height = max(lh, rh) + 1;
-  
-  return max(lh + rh + 1, max(ldiameter, rdiameter));
-  
-}
+	/* Function to get diameter of a binary tree Time Complexity = O(n^2), Space Complexity = O(1)*/
+	int diameter(Node root)
+	{
+	   /* base case where tree is empty */
+	   if (root == null)
+	     return 0;
+	 
+	  /* get the height of lchild and rchild sub-trees */
+	  int lheight = height(root.lchild);
+	  int rheight = height(root.rchild);
+	 
+	  /* get the diameter of lchild and rchild sub-trees */
+	  int ldiameter = diameter(root.lchild);
+	  int rdiameter = diameter(root.rchild);
+	 
+	  /* Return max of following three
+	   1) Diameter of lchild subtree
+	   2) Diameter of rchild subtree
+	   3) Height of lchild subtree + height of rchild subtree + 1 */
+	  return Math.max(lheight + rheight + 1, Math.max(ldiameter, rdiameter));
+	} 
+		/*
+		Time Complexity: O(n^2)
+		Space Complexity: O(1)
+		*/
